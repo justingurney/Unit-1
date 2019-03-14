@@ -1,11 +1,5 @@
-/**** 
- The array of quotes, with the assigned varibale "quotes". 
- ****/ 
 var quotes = [
     {
-        /**** 
-        * Quote from Arnold Schwarzenegger about success.
-        ****/ 
         quote: "You can’t climb the ladder of success with your hands in your pockets",
         source: "Arnold Schwarzenegger",
         date: "New York, 5th July 1986",
@@ -14,18 +8,12 @@ var quotes = [
 
     },
     {
-        /**** 
-        * Quote from Bruce Lee about self-value.
-        ****/ 
         quote: "The more we value things, the less we value ourselves.",
         source: "Bruce Lee",
         date: "8th July 1962",
         tag: "Actor"
     },
     {
-        /**** 
-        * Quote from Ray Charles about having your eyes open.
-        ****/ 
         quote: "Just because you can’t see anything doesn’t mean you should shut your eyes", 
         source: "Ray Charles",
         date: "4th July 1970",
@@ -38,18 +26,12 @@ var quotes = [
         tag: "Artist "
     },
     {
-        /**** 
-        * Quote from CT Fletcher about obsession.
-        ****/ 
         quote: "If you don’t have the mental capacity to be obsessed with what you’re trying to get… then you’re never gonna get it",
         source: "CT Fletcher",
         date: "Florida, 1th July 2000",
         tag: "Body Builder"
     },
     {
-        /**** 
-        * Quote from  Charlie Chaplin about how to make life worthwhile.
-        ****/ 
         quote: "You’ll find that life is still worthwhile, if you just smile",
         source: "Charlie Chaplin",
         date: "3th July 1929",
@@ -58,14 +40,16 @@ var quotes = [
     }
 ];
 
-/***
-*  A function of 'getRandomQuote ', using the array of 'quotes' as the perimeter.
-Within the brackets the 'let' var 'quoteIndex' random orders the quotes.
-'var randomQuote ' holds 'let quoteIndex' and the 'for' loop, then the 'var randomQuote' is returned.
-***/
-
+/*
+A function of 'getRandomQuote ', being passed the array of quotes.
+Changes backgroun colour using the 'changeBackgroundColour' function.
+Also the var 'quoteIndex' orders the quotes randomly.
+A quote is then assigned to the randomQuote var and is then returned.
+*/
 function getRandomQuote(array){
-    let quoteIndex= Math.floor(Math.random() * quotes.length)
+    changeBackgroundColour();
+
+    var quoteIndex= Math.floor(Math.random() * quotes.length)
   
     for(var o = 0; o < array.length; o++){
 
@@ -73,7 +57,11 @@ function getRandomQuote(array){
     }
     return randomQuote;
 }
-function random_bg_color() {
+
+/*
+ Using 'var color'('rgb') to change background colour through the function 'changeBackgoundColour'.
+ */
+function changeBackgroundColour() {
     var r = Math.floor(Math.random() * 255);
     var g = Math.floor(Math.random() * 255);
     var b = Math.floor(Math.random() * 255);
@@ -81,23 +69,25 @@ function random_bg_color() {
     document.getElementById('background-color').style.background = color;
 }
 
-/***
- * The function of 'printQuote', locates the array of random 'quotes' through 'var result' .
- 'var message' sorts out the process of display. 
- whilest using 'quote-box' id to link app.js functions to the html 'body'.
-***/
-
-function printQuote (message) {
+/*
+The function of 'printQuote', locates the array of random 'quotes' through 'var result', then updates the quote on the page.
+*/
+function printQuote(message) {
     var result = getRandomQuote(quotes);
-    random_bg_color();
     document.getElementById('quote-box').innerHTML = '<p class="quote">' + result.quote + '</p>' + '<p class="source">' + result.source + '<span class="citation">' + result.tag + '</span><span class="year">' + result.date + '</span></p>';
 };
 
-/***
-* this links the app.js botton 'document.' process to the botton in the html by 'loadQuotes'.
-***/
-
+/*
+This links the app.js botton 'document.' process to the botton in the html by 'loadQuotes'.
+*/
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+/*
+Change quote every 10 seconds
+*/
+setInterval(function () {
+    printQuote();
+}, 10000);
 
 
 
