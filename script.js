@@ -2,39 +2,43 @@ var quotes = [
     {
         quote: "You can’t climb the ladder of success with your hands in your pockets",
         source: "Arnold Schwarzenegger",
-        date: "New York, 5th July 1986",
+        year: "1986",
+        citation: "Google",
         tag: "Public Figure"
-
-
     },
     {
         quote: "The more we value things, the less we value ourselves.",
         source: "Bruce Lee",
-        date: "8th July 1962",
+        year: "1962",
+        citation: "Google",
         tag: "Actor"
     },
     {
         quote: "Just because you can’t see anything doesn’t mean you should shut your eyes", 
         source: "Ray Charles",
-        date: "4th July 1970",
+        year: "1970",
+        citation: "Google",
         tag: "Musician"
     },
     {
         quote: "The biggest coward of a man is to awaken the love of a woman without the intention of loving her",
         source: "Bob Marley",
-        date: "2th July 1978",
+        year: "1978",
+        citation: "Google",
         tag: "Artist "
     },
     {
         quote: "If you don’t have the mental capacity to be obsessed with what you’re trying to get… then you’re never gonna get it",
         source: "CT Fletcher",
-        date: "Florida, 1th July 2000",
+        year: "2000",
+        citation: "Google",
         tag: "Body Builder"
     },
     {
         quote: "You’ll find that life is still worthwhile, if you just smile",
         source: "Charlie Chaplin",
-        date: "3th July 1929",
+        year: "1929",
+        citation: "Google",
         tag: "Icon"
 
     }
@@ -42,7 +46,7 @@ var quotes = [
 
 /*
 A function of 'getRandomQuote ', being passed the array of quotes.
-Changes backgroun colour using the 'changeBackgroundColour' function.
+Changes background colour using the 'changeBackgroundColour' function.
 Also the var 'quoteIndex' orders the quotes randomly.
 A quote is then assigned to the randomQuote var and is then returned.
 */
@@ -74,7 +78,7 @@ The function of 'printQuote', locates the array of random 'quotes' through 'var 
 */
 function printQuote(message) {
     var result = getRandomQuote(quotes);
-    document.getElementById('quote-box').innerHTML = '<p class="quote">' + result.quote + '</p>' + '<p class="source">' + result.source + '<span class="citation">' + result.tag + '</span><span class="year">' + result.date + '</span></p>';
+    document.getElementById('quote-box').innerHTML = '<p class="quote">' + result.quote + '</p>' + '<p class="source">' + result.source + '<span class="citation">' + result.citation + '</span><span class="year">' + result.year + '</span>, <span class"tag">' + result.tag + '</span></p>';
 };
 
 /*
